@@ -1,14 +1,6 @@
 
-
-## **Link Project OneDrive**
-
-[https://mikroskilacid-my.sharepoint.com/:f:/g/personal/221110776_students_mikroskil_ac_id/Eiey9HEy7PZAv006Y19rs-8BGM6IoH5dmimGVU-Yi50rHA?e=XetypI](https://mikroskilacid-my.sharepoint.com/:f:/g/personal/221110776_students_mikroskil_ac_id/Eiey9HEy7PZAv006Y19rs-8BGM6IoH5dmimGVU-Yi50rHA?e=XetypI)
-
-## **Kelompok 12**
-
+## Nim-Nama
 * 221113096 – Lampita E. R. Hutasoit
-* 221110776 – Xavier William Kurniawan
-* 221112888 – Steven
 
 
 ---
