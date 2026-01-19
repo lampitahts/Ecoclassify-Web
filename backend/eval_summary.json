@@ -1,0 +1,12 @@
+{
+  "TP": 1791,
+  "FN": 0,
+  "TN": 0,
+  "FP": 2390,
+  "UNKNOWN": 3961,
+  "total_images": 8142,
+  "accuracy_excluding_unknown": 0.428366419516862,
+  "organik_recall": 1.0,
+  "organik_precision": 0.428366419516862,
+  "unknown_fraction": 0.4864898059444854
+}

@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>EcoClassify</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Fonts for a more aesthetic look -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>/* minimal inline reset for the new layout */
+    :root{--accent:#10b981}
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-left">
+      <!-- use provided eco-friendly logo in assets -->
+    <div class="logo">
+      <img src="assets/OIP.png" alt="EcoClassify">
+      <span class="logo-text">EcoClassify</span>
+    </div>
+
+    </div>
+    <nav class="nav-right">
+      <a href="#" id="navHome" data-page="home" class="nav-link active">Beranda</a>
+      <a href="#" id="navHistory" data-page="history" class="nav-link">Riwayat</a>
+      <a href="#" id="navStats" data-page="stats" class="nav-link">Statistik</a>
+      <!-- Theme toggle (JS in app.js looks up #themeToggle) -->
+      <button id="themeToggle" class="theme-toggle" title="Ganti tema">☾</button>
+    </nav>
+  </header>
+
+  <main id="app">
+    <section id="page-home" class="page">
+      <section class="hero" style="background-image: url('assets/image_1759881175893.png'); background-size:cover; background-position:center;">
+        <div class="hero-overlay"></div>
+        <div class="hero-inner">
+          <h1>Klasifikasi Sampah<br><span class="hero-highlight">dengan AI</span></h1>
+          <p class="lead">Gunakan teknologi EfficientNetB0 untuk mengidentifikasi sampah organik dan anorganik secara akurat, lengkap dengan saran penanganan yang tepat.</p>
+          <div class="hero-ctas">
+            <button id="toUpload" class="btn-primary">Mulai Klasifikasi</button>
+            <button id="toStats" class="btn-ghost" id="toStatsBtn">Lihat Statistik</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="upload-section">
+  <div class="upload-card">
+          <h3>Upload & Klasifikasi</h3>
+          <div class="dropzone" id="dropzone">
+            <div class="dz-inner">
+              <div class="dz-icon">⬆</div>
+              <div class="dz-text">Upload Gambar Sampah</div>
+              <div class="dz-sub">Seret dan lepaskan atau klik untuk memilih (JPG, PNG)</div>
+              <input id="fileInput" type="file" accept="image/*" />
+              <div class="dz-filename" id="dzFilename"></div>
+              <div style="margin-top:10px"><button type="button" class="btn-select" onclick="document.getElementById('fileInput').click()">Pilih Gambar</button></div>
+            </div>
+          </div>
+          <div class="actions">
+            <!-- disabled initially until an image is selected -->
+            <button id="uploadBtn" class="btn-primary" disabled>Klasifikasikan</button>
+            <button id="clearBtn" class="btn-ghost">Bersihkan</button>
+          </div>
+
+          <!-- preview area that shows selected image immediately inside result card; keep one image only -->
+          <div id="preview" style="margin-top:12px; max-width:260px;"></div>
+
+          <div id="resultCard" class="result-card" style="display:none">
+            <div class="result-inner">
+              <img id="resThumb" src="" alt="thumbnail">
+              <div class="result-body">
+                <div class="result-header">
+                  <div class="badge" id="resJenisBadge">Anorganik</div>
+                  <h4 id="resKategori">Kertas</h4>
+                </div>
+                <div class="progress-row">
+                  <div class="progress-label">Akurasi Prediksi</div>
+                  <div class="progress-val" id="resAkurasiText">85.9%</div>
+                </div>
+                <div class="progress"><div id="resProgressBar" class="progress-bar" style="width:0%"></div></div>
+                <div class="saran" id="resSaran">Saran penanganan akan muncul di sini.</div>
+                <div class="result-actions">
+                  <button id="saveResult" class="btn-primary">Simpan ke Riwayat</button>
+                  <button id="classifyAgain" class="btn-ghost">Klasifikasi Lagi</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="info-cards">
+          <div class="info feature"> 
+            <div class="feature-icon">🤖</div>
+            <h4>AI Akurat</h4>
+            <p>Model EfficientNetB0 yang telah dilatih untuk akurasi tinggi.</p>
+          </div>
+          <div class="info feature"> 
+            <div class="feature-icon">📘</div>
+            <h4>Saran Edukatif</h4>
+            <p>Hasil dilengkapi tips penanganan dan edukasi lingkungan.</p>
+          </div>
+          <div class="info feature"> 
+            <div class="feature-icon">📈</div>
+            <h4>Lacak Riwayat</h4>
+            <p>Simpan hasil klasifikasi untuk statistik dan analisa.</p>
+          </div>
+        </aside>
+      </section>
+    </section>
+
+    <section id="page-history" class="page" style="display:none">
+      <div class="page-inner">
+        <h2>Riwayat Klasifikasi</h2>
+        <div class="history-controls">
+          <input id="searchKategori" placeholder="Cari kategori sampah..." />
+          <select id="filterJenis"><option value="">Semua Jenis</option><option value="organik">Organik</option><option value="anorganik">Anorganik</option></select>
+          <!-- kept for compatibility but will call loadHistory directly -->
+          <button id="applyFilter" class="btn-primary">Cari</button>
+          <button id="clearAllHistory" class="btn-ghost">Hapus Semua</button>
+        </div>
+        <div id="historyWrap">
+          <div id="historyList" class="history-list">
+            <div class="empty">Belum ada riwayat klasifikasi.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="page-stats" class="page" style="display:none">
+      <div class="page-inner">
+        <h2>Statistik</h2>
+        <div class="stats-grid">
+          <div class="stat-card"><div class="stat-num" id="totalCount">0</div><div class="stat-label">Total Klasifikasi</div></div>
+          <div class="stat-card"><div class="stat-num" id="organikCount">0</div><div class="stat-label">Sampah Organik</div></div>
+          <div class="stat-card"><div class="stat-num" id="anorganikCount">0</div><div class="stat-label">Sampah Anorganik</div></div>
+          <div class="stat-card"><div class="stat-num" id="avgAcc">0%</div><div class="stat-label">Akurasi Rata-rata</div></div>
+        </div>
+        <div class="charts">
+          <div class="chart-card"><h4>Distribusi Organik vs Anorganik</h4><canvas id="chartOrgAn"></canvas></div>
+          <div class="chart-card"><h4>Top Kategori Sampah</h4><canvas id="chartCategories"></canvas></div>
+        </div>
+        <div class="insight" id="insightArea"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">&copy; EcoClassify</footer>
+
+<!-- cache-bust app.js to ensure latest script loads -->
+<script src="app.js?v=2"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+</html>

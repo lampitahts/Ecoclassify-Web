@@ -1,0 +1,15 @@
+{
+  "buah": "organik",
+  "bunga": "organik",
+  "campuran": "organik",
+  "daging": "organik",
+  "daun": "organik",
+  "makanan": "organik",
+  "cardboard": "anorganik",
+  "glass": "anorganik",
+  "metal": "anorganik",
+  "paper": "anorganik",
+  "plastic": "anorganik",
+  "organik": "organik",
+  "anorganik": "anorganik"
+}

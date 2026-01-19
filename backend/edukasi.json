@@ -1,0 +1,15 @@
+{
+  "buah": "Buah termasuk sampah organik. Dapat dikomposkan atau dijadikan pakan ternak.",
+  "bunga": "Bunga termasuk sampah organik. Cocok untuk kompos dan memperkaya tanah.",
+  "daging": "Daging termasuk sampah organik. Sebaiknya dikomposkan dengan metode khusus atau dijadikan pakan ternak.",
+  "daun": "Daun kering termasuk sampah organik. Sangat baik untuk kompos dan mulsa tanaman.",
+  "makanan": "Sisa makanan termasuk sampah organik. Dapat dikomposkan atau diolah menjadi pupuk organik.",
+  "campuran_organik": "Sampah organik campuran. Pisahkan dari anorganik sebelum dikomposkan.",
+  "plastic": "Sampah plastik dapat didaur ulang. Bersihkan sisa makanan dan pisahkan berdasarkan jenis plastik jika memungkinkan.",
+  "paper": "Kertas dan koran dapat didaur ulang jika bersih dan kering. Pisahkan kertas berminyak atau kotor.",
+  "cardboard": "Kardus dapat didaur ulang. Lipat dan ratakan kardus untuk mengurangi volume.",
+  "glass": "Kaca dapat didaur ulang. Pisahkan dari jenis sampah lain dan jangan pecahkan sebelum disortir.",
+  "metal": "Logam dan kaleng dapat didaur ulang. Bersihkan sisa makanan sebelum diserahkan ke daur ulang.",
+  "organik": "Sampah organik dapat dikomposkan. Pisahkan sisa makanan dan bahan organik untuk kompos.",
+  "default": "Pisahkan sampah organik dan anorganik. Untuk hasil lebih baik, ambil foto lebih jelas atau tambahkan data pelatihan."
+}
